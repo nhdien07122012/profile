@@ -1,14 +1,116 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Kindred Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .header a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .container {
+            padding: 20px;
+        }
+        .profile {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .profile h1 {
+            margin-top: 20px;
+        }
+        .profile .icons {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .profile .icons div {
+            margin-right: 20px;
+        }
+        .profile .buttons {
+            margin-top: 20px;
+        }
+        .profile .buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .profile .about,
+        .profile .household {
+            margin-top: 20px;
+        }
+        .profile .household ul {
+            list-style: none;
+            padding: 0;
+        }
+        .profile .household li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello from GitHub Pages!</h1>
-    <p>Đây là web của diễn nguyễn</p>
-    <script src="script.js"></script>
+    <div class="header">
+        <div class="logo">Kindred</div>
+        <div class="nav">
+            <a href="#">Browse</a>
+            <a href="#">Hosting</a>
+            <a href="#">Inbox</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="profile-link">Hi, Justine</div>
+    </div>
+    <div class="container">
+        <div class="profile">
+            <img src="main-photo.jpg" alt="Justine, Ben and Ava">
+            <h1>Hosted by Justine, Ben and Ava</h1>
+            <div class="icons">
+                <div>Pending host</div>
+                <div>Top shelf bread and board</div>
+                <div>Their home is popular pick</div>
+            </div>
+            <div class="buttons">
+                <button>See a review video</button>
+                <button>Meet our dog, Ava</button>
+            </div>
+            <div class="about">
+                <h2>About us</h2>
+                <p>Live in SF, work remotely, Ben loves Asian inspired flavors & 2 young kiddos.</p>
+            </div>
+            <div class="household">
+                <h2>Our Household</h2>
+                <ul>
+                    <li>Justine Ayrton: Full-time freelancer.</li>
+                    <li>Ben Ayrton: Works in tech.</li>
+                    <li>Ava: Our dog, loves to play and gifts us her bones.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript for additional functionalities can be added here
+    </script>
 </body>
 </html>
