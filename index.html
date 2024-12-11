@@ -1,86 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Website với các ô vuông</title>
-	<style>
-		.square {
-			width: 200px;
-			height: 300px;
-			border: 1px solid rgb(255, 255, 255);
-			display: inline-block;
-			text-align: center;
-			vertical-align: middle;
-			margin: 10px;
-			font-size: 24px;
-			font-weight: bold;
-			color: white;
-		}
-		.info {
-			background-color: rgb(255, 255, 255);
-			border-radius: 30px;
-			color: black;
-			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-		}
-		.listmusic {
-			background-color: rgb(255, 255, 255);
-			border-radius: 30px;
-			color: black;
-			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-		}
-		.music {
-			background-color: rgb(255, 255, 255);
-			border-radius: 30px;
-			color: black;
-			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-		}
-
-		body {
-			font-family: 'Roboto', sans-serif;
-		}
-		.info p{
-			font-size: 15px;
-			padding: 1px 10px;
-			text-align: left;
-		}
-		.music p{
-			font-size: 15px;
-			padding: 1px 10px;
-			text-align: center;
-		}
-		h3{
-			text-decoration: underline;
-		}
-		iframe{
-			border-radius: 20px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Personal Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="square info">
-		<h3>Thông tin</h3>
-		<p>- Họ và tên: Diễn Nguyễn </p>
-		<p>- Năm sinh: 03/06/1995</p>
-		<p>- Địa chỉ: An Minh-KG </p>
-		<p>- Tình trạng: Đã có vợ</p>
-		<p>- Điện thoại: 0399962032</p>
-
-	</div>
-	
-	<div class="square listmusic">
-		<h3>List nhạc</h3>
-	
-	</div>
-	<div class="square music">
-		<h3>Nghe nhạc</h3>
-		<p>Chúc nghe nhạc vui vẻ!!</p>
-		<iframe id="ytplayer" type="text/html" width="180" height="150"
-		src="https://www.youtube.com/embed/9IhbC1PQ5t8"
-		frameborder="0" allowfullscreen>
-		<p>Chúc sếp nghe nhạc vui vẻ!!</p>
-	</div>
-
-	
-	
-	
+    <div class="sidebar" id="sidebar">
+        <div class="profile">
+            <img src="profile-pic.jpg" alt="Profile Picture">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i><span class="nav-text">Calendar</span></a></li>
+                <li><a href="#"><i class="fas fa-users"></i><span class="nav-text">Employees</span></a></li>
+                <li><a href="#"><i class="fas fa-plane"></i><span class="nav-text">Leave Requests</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content" id="main-content">
+        <header>
+            <button id="menu-toggle">☰</button>
+        </header>
+        <section class="personal-profile">
+            <div class="cover-photo">
+                <img src="cover-photo.jpg" alt="Cover Photo">
+            </div>
+            <div class="avatar">
+                <img src="profile-pic.jpg" alt="Avatar">
+            </div>
+            <div class="info-section">
+                <div class="personal-info">
+                    <h1>Nguyễn Hoài Diễn</h1>
+                    <p><i class="fas fa-phone"></i> <strong>Số điện thoại:</strong> 0399962032</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> 575 Nguyễn Trung Trực, An Hòa, Rạch Giá, Kiên Giang</p>
+                    <p><i class="fas fa-building"></i> <strong>Nơi làm việc:</strong> Bưu điện tỉnh Kiên Giang</p>
+                </div>
+                <div class="qr-code">
+                    <img src="qr-code.png" alt="QR Code">
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

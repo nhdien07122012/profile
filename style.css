@@ -1,0 +1,233 @@
+body {
+    font-family: 'Roboto Mono', monospace; /* Sử dụng font của Copilot */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 60px; /* Kích thước phù hợp */
+    background-color: #004080; /* Màu xanh dương đậm */
+    color: white;
+    padding: 10px;
+    flex-shrink: 0;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease, left 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar.active {
+    width: 200px; /* Kích thước phù hợp */
+    left: 0; /* Căn lề sang bên trái */
+}
+
+.sidebar .profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .profile img {
+    width: 45px; /* Kích thước phù hợp */
+    height: 45px; /* Kích thước phù hợp */
+    border-radius: 50%;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 20px; /* Tăng khoảng cách giữa các chức năng */
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar nav ul li a i {
+    font-size: 24px; /* Kích thước phù hợp */
+}
+
+.sidebar nav ul li a .nav-text {
+    display: none;
+    margin-top: 5px;
+}
+
+.sidebar.active .nav-text {
+    display: block;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 60px; /* Kích thước phù hợp */
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.active {
+    margin-left: 200px; /* Kích thước phù hợp */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+header button#menu-toggle {
+    display: block; /* Always show */
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.personal-profile .cover-photo {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.personal-profile .cover-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Bảo đảm hình ảnh bìa luôn vừa với khung */
+}
+
+.personal-profile .avatar {
+    width: 150px; /* Kích thước phù hợp */
+    height: 150px; /* Kích thước phù hợp */
+    border-radius: 50%;
+    overflow: hidden;
+    margin: -75px auto 20px; /* Vị trí phù hợp */
+    position: relative;
+    border: 5px solid #fff;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.personal-profile .avatar img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Bảo đảm hình ảnh avatar luôn vừa với khung */
+}
+
+.personal-profile .info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.personal-profile .personal-info {
+    text-align: left; /* Căn lề sang bên trái */
+    flex: 1;
+}
+
+.personal-profile .personal-info h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.personal-profile .personal-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.personal-profile .personal-info p i {
+    margin-right: 10px; /* Khoảng cách phù hợp */
+}
+
+.personal-profile .qr-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.personal-profile .qr-code img {
+    width: 150px; /* Điều chỉnh kích thước phù hợp */
+    height: 150px; /* Điều chỉnh kích thước phù hợp */
+    object-fit: contain;
+}
+
+/* Responsive Design */
+@media (min-width: 1200px) {
+    .personal-profile .cover-photo {
+        height: 400px;
+    }
+    .personal-profile .avatar {
+        width: 200px;
+        height: 200px;
+        margin: -100px auto 20px;
+    }
+    .personal-profile .personal-info h1,
+    .personal-profile .personal-info p {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .personal-profile .cover-photo {
+        height: 300px;
+    }
+    .personal-profile .avatar {
+        width: 150px;
+        height: 150px;
+        margin: -75px auto 20px;
+    }
+    .personal-profile .personal-info h1,
+    .personal-profile .personal-info p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        left: -60px;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .main-content {
+        margin-left: 60px;
+    }
+    .main-content.active {
+        margin-left: 200px;
+    }
+    .personal-profile .cover-photo {
+        height: 200px;
+    }
+    .personal-profile .avatar {
+        width: 100px;
+        height: 100px;
+        margin: -50px auto 10px;
+    }
+    .personal-profile .personal-info h1,
+    .personal-profile .personal-info p {
+        font-size: 14px;
+    }
+}
