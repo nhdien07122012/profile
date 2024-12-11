@@ -213,13 +213,16 @@ header button#menu-toggle {
         left: 0;
     }
     .main-content {
-        margin-left: 60px;
+        margin-left: auto;
+    
     }
     .main-content.active {
-        margin-left: 200px;
+        margin-left: auto;
+        
     }
     .personal-profile .cover-photo {
         height: 200px;
+        width: auto;
     }
     .personal-profile .avatar {
         width: 100px;
