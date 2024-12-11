@@ -5,12 +5,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const qrToggle = document.getElementById("qr-toggle");
     const qrCode = document.getElementById("qr-code");
 
-    menuToggle.addEventListener("click", function() {
+    // Toggle sidebar khi nhấn nút menu
+    menuToggle.addEventListener("click", function(event) {
+        event.stopPropagation(); // Ngăn chặn sự kiện click lan sang các phần tử khác
         sidebar.classList.toggle("active");
         mainContent.classList.toggle("active");
     });
 
-    qrToggle.addEventListener("click", function() {
+    // Tự động ẩn sidebar khi click vào vùng nội dung chính
+    mainContent.addEventListener("click", function() {
+        sidebar.classList.remove("active");
+        mainContent.classList.remove("active");
+    });
+
+    // Toggle QR Code khi nhấn nút qr-toggle
+    qrToggle?.addEventListener("click", function(event) {
+        event.stopPropagation();
         qrCode.style.display = qrCode.style.display === "flex" ? "none" : "flex";
     });
 });

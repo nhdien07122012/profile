@@ -106,6 +106,7 @@ header button#menu-toggle {
     height: 300px;
     overflow: hidden;
     position: relative;
+    border-radius: 20px;
 }
 
 .personal-profile .cover-photo img {
@@ -162,16 +163,18 @@ header button#menu-toggle {
 }
 
 .personal-profile .qr-code {
-    display: none; /* Ẩn mã QR mặc định */
-    justify-content: center;
-    align-items: center;
+    display: flex;               /* Dùng flexbox để căn giữa */
+    justify-content: center;     /* Căn giữa theo chiều ngang */
+    align-items: center;         /* Căn giữa theo chiều dọc */
     margin-top: 20px;
+    width: 100%;                 /* Đảm bảo mã QR không bị tràn */
+    height: 100%;                /* Đảm bảo chứa đủ không gian */
 }
 
 .personal-profile .qr-code img {
-    width: 150px; /* Điều chỉnh kích thước phù hợp */
-    height: 150px; /* Điều chỉnh kích thước phù hợp */
-    object-fit: contain;
+    width: 350px;   /* Kích thước mã QR */
+    height: 350px;  /* Kích thước mã QR */
+    object-fit: contain; /* Giữ tỷ lệ gốc của hình ảnh */
 }
 
 /* Responsive Design */
