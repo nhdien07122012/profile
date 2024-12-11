@@ -9,29 +9,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="profile">
-            <img src="profile-pic.jpg" alt="Profile Picture">
+            <img src="profile-pic.jpg" alt="Profile Picture" loading="lazy">
         </div>
         <nav>
             <ul>
-                <li><a href="#"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
-                <li><a href="#"><i class="fas fa-calendar-alt"></i><span class="nav-text">Calendar</span></a></li>
+                <li><a href="#"><i class="fas fa-home"></i><span class="nav-text">Trang chủ</span></a></li>
+                <li>
+                    <a href="qr.html" target="_blank">
+                        <i class="fas fa-qrcode"></i>
+                        <span class="nav-text">Quét QR</span>
+                    </a>
+                </li>                
                 <li><a href="#"><i class="fas fa-users"></i><span class="nav-text">Employees</span></a></li>
                 <li><a href="#"><i class="fas fa-plane"></i><span class="nav-text">Leave Requests</span></a></li>
             </ul>
         </nav>
     </div>
+
+    <!-- Main Content -->
     <div class="main-content" id="main-content">
         <header>
-            <button id="menu-toggle">☰</button>
+            <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
         </header>
         <section class="personal-profile">
             <div class="cover-photo">
-                <img src="cover-photo.jpg" alt="Cover Photo">
+                <img src="cover-photo.jpg" alt="Cover Photo" loading="lazy">
             </div>
             <div class="avatar">
-                <img src="profile-pic.jpg" alt="Avatar">
+                <img src="profile-pic.jpg" alt="Avatar" loading="lazy">
             </div>
             <div class="info-section">
                 <div class="personal-info">
@@ -40,12 +48,13 @@
                     <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> 575 Nguyễn Trung Trực, An Hòa, Rạch Giá, Kiên Giang</p>
                     <p><i class="fas fa-building"></i> <strong>Nơi làm việc:</strong> Bưu điện tỉnh Kiên Giang</p>
                 </div>
-                <div class="qr-code">
-                    <img src="qr-code.png" alt="QR Code">
+                <div class="qr-code" id="qr-code">
+                    <img src="qr-code.png" alt="QR Code" loading="lazy">
                 </div>
             </div>
         </section>
     </div>
+
     <script src="main.js"></script>
 </body>
 </html>

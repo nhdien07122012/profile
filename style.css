@@ -7,8 +7,8 @@ body {
 }
 
 .sidebar {
-    width: 60px; /* Kích thước phù hợp */
-    background-color: #004080; /* Màu xanh dương đậm */
+    width: 40px; /* Kích thước phù hợp */
+    background-color: #08315a; /* Màu xanh dương đậm */
     color: white;
     padding: 10px;
     flex-shrink: 0;
@@ -24,7 +24,7 @@ body {
 }
 
 .sidebar.active {
-    width: 200px; /* Kích thước phù hợp */
+    width: 120px; /* Kích thước phù hợp */
     left: 0; /* Căn lề sang bên trái */
 }
 
@@ -88,7 +88,7 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
     flex-wrap: wrap;
     margin-bottom: 20px;
 }
@@ -162,7 +162,7 @@ header button#menu-toggle {
 }
 
 .personal-profile .qr-code {
-    display: flex;
+    display: none; /* Ẩn mã QR mặc định */
     justify-content: center;
     align-items: center;
     margin-top: 20px;
