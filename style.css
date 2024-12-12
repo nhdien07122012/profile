@@ -8,7 +8,7 @@ body {
 
 .sidebar {
     width: 40px; /* Kích thước phù hợp */
-    background-color: #a8a8a8; /* Màu thanh điều hướng */
+    background-color: #444444d3; /* Màu thanh điều hướng */
     color: white;
     padding: 10px;
     flex-shrink: 0;
