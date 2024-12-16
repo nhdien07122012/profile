@@ -93,12 +93,29 @@ header {
     margin-bottom: 20px;
 }
 
-header button#menu-toggle {
-    display: block; /* Always show */
+header button#menu-toggle,
+header button#qr-toggle { /* Styles chung cho các nút */
+    display: block;
     font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
+    background-color: #007bff; /* Màu nền xanh dương */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Bỏ viền */
+    border-radius: 8px; /* Bo góc viền */
+    padding: 10px 20px; /* Khoảng cách nội dung */
+    cursor: pointer; /* Đổi con trỏ thành bàn tay khi rê chuột vào */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+header button#menu-toggle:hover,
+header button#qr-toggle:hover {
+    background-color: #0056b3; /* Đổi màu nền khi hover */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+header button#menu-toggle:focus,
+header button#qr-toggle:focus {
+    outline: none; /* Bỏ viền focus mặc định */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Thêm viền shadow khi focus */
 }
 
 .personal-profile .cover-photo {
@@ -163,21 +180,21 @@ header button#menu-toggle {
 }
 
 .personal-profile .qr-code {
-    display: flex;               /* Dùng flexbox để căn giữa */
-    justify-content: center;     /* Căn giữa theo chiều ngang */
-    align-items: center;         /* Căn giữa theo chiều dọc */
+    display: flex; /* Dùng flexbox để căn giữa */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
     margin-top: 20px;
-    width: 100%;                 /* Đảm bảo mã QR không bị tràn */
-    height: 100%;                /* Đảm bảo chứa đủ không gian */
+    width: 100%; /* Đảm bảo mã QR không bị tràn */
+    height: 100%; /* Đảm bảo chứa đủ không gian */
 }
 
 .personal-profile .qr-code img {
-    width: 350px;   /* Kích thước mã QR */
-    height: 350px;  /* Kích thước mã QR */
+    width: 350px; /* Kích thước mã QR */
+    height: 350px; /* Kích thước mã QR */
     object-fit: contain; /* Giữ tỷ lệ gốc của hình ảnh */
 }
 
-/* Responsive Design */
+/* Thiết kế đáp ứng (Responsive Design) */
 @media (min-width: 1200px) {
     .personal-profile .cover-photo {
         height: 400px;
@@ -217,11 +234,9 @@ header button#menu-toggle {
     }
     .main-content {
         margin-left: auto;
-    
     }
     .main-content.active {
         margin-left: auto;
-        
     }
     .personal-profile .cover-photo {
         height: 200px;
