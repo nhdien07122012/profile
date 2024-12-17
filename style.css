@@ -93,9 +93,8 @@ header {
     margin-bottom: 20px;
 }
 
-header button#menu-toggle,
-header button#qr-toggle { /* Styles chung cho các nút */
-    display: block;
+header button#menu-toggle {
+    display: block; /* Luôn hiển thị */
     font-size: 24px;
     background-color: #007bff; /* Màu nền xanh dương */
     color: white; /* Màu chữ trắng */
@@ -106,14 +105,12 @@ header button#qr-toggle { /* Styles chung cho các nút */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi */
 }
 
-header button#menu-toggle:hover,
-header button#qr-toggle:hover {
+header button#menu-toggle:hover {
     background-color: #0056b3; /* Đổi màu nền khi hover */
     transform: scale(1.05); /* Phóng to nhẹ khi hover */
 }
 
-header button#menu-toggle:focus,
-header button#qr-toggle:focus {
+header button#menu-toggle:focus {
     outline: none; /* Bỏ viền focus mặc định */
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Thêm viền shadow khi focus */
 }
@@ -195,60 +192,34 @@ header button#qr-toggle:focus {
 }
 
 /* Thiết kế đáp ứng (Responsive Design) */
-@media (min-width: 1200px) {
-    .personal-profile .cover-photo {
-        height: 400px;
-    }
-    .personal-profile .avatar {
-        width: 200px;
-        height: 200px;
-        margin: -100px auto 20px;
-    }
-    .personal-profile .personal-info h1,
-    .personal-profile .personal-info p {
-        font-size: 18px;
-    }
+@media (min-width: 120[_{{{CITATION{{{_1{](https://github.com/StephenMercer/StephensCode/tree/4a5694be6beab4feed9ba061eb5c5ea57a031fd2/JavaScript%2FJSCourseCodeNotes%2F25_SelectingMultipleDOMElements.md)[_{{{CITATION{{{_2{](https://github.com/Hami-Lemon/note/tree/8e7ae5b41e53c2cf9d2c6418e30c87123b8037b4/Java%2Fweb%E5%BC%80%E5%8F%91%2F%E5%89%8D%E7%AB%AF.md)[_{{{CITATION{{{_3{](https://github.com/jacoewhi/DescriptionTemplatingSystem/tree/e89d1e71a3689dcf960a472fa53495caf1be8c45/oldSpecGenerations%2Fpanelview.php)
+
+    /* CSS cũ sẽ được giữ nguyên */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Khoảng cách giữa các hình ảnh */
+    padding: 20px;
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-    .personal-profile .cover-photo {
-        height: 300px;
-    }
-    .personal-profile .avatar {
-        width: 150px;
-        height: 150px;
-        margin: -75px auto 20px;
-    }
-    .personal-profile .personal-info h1,
-    .personal-profile .personal-info p {
-        font-size: 16px;
-    }
+.gallery-item {
+    width: calc(33.333% - 20px); /* Đảm bảo hình ảnh có kích thước bằng nhau và khoảng cách đều */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
 }
 
-@media (max-width: 767px) {
-    .sidebar {
-        left: -60px;
-    }
-    .sidebar.active {
-        left: 0;
-    }
-    .main-content {
-        margin-left: auto;
-    }
-    .main-content.active {
-        margin-left: auto;
-    }
-    .personal-profile .cover-photo {
-        height: 200px;
-        width: auto;
-    }
-    .personal-profile .avatar {
-        width: 100px;
-        height: 100px;
-        margin: -50px auto 10px;
-    }
-    .personal-profile .personal-info h1,
-    .personal-profile .personal-info p {
-        font-size: 16px;
-    }
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo hình ảnh luôn vừa với khung */
+}
+
+.gallery-item p {
+    padding: 10px;
+    text-align: center;
+    background-color: #f8f8f8;
+    margin: 0;
 }
