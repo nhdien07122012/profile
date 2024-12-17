@@ -7,9 +7,10 @@ body {
     flex-direction: column;
 }
 
+/* Thêm hiệu ứng shadow cho sidebar */
 .sidebar {
-    width: 40px; /* Suitable size */
-    background-color: #444444d3; /* Navigation bar color */
+    width: 40px; /* Chiều rộng mặc định */
+    background-color: #007bff; /* Màu nền sidebar */
     color: white;
     padding: 10px;
     flex-shrink: 0;
@@ -22,12 +23,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Thêm shadow cho sidebar */
 }
 
 .sidebar.active {
-    width: 120px; /* Suitable size */
-    left: 0; /* Align to the left */
+    width: 120px; /* Chiều rộng khi sidebar mở */
+    left: 0; /* Căn trái */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Tăng độ đậm của shadow khi sidebar mở */
 }
+
 
 .sidebar .profile {
     width: 100%;
@@ -294,6 +298,7 @@ header button#menu-toggle:focus {
     height: 100%;
     object-fit: cover; /* Cắt ảnh để khớp kích thước khung */
     transition: opacity 0.3s ease; /* Hiệu ứng mờ dần */
+    border-radius: 30px;
 }
 
 .gallery-item:hover img {
