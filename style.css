@@ -254,23 +254,23 @@ header button#menu-toggle:focus {
 /* Gallery Styles */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Minimum square size 100px */
-    gap: 10px; /* Gap between images */
-    justify-content: center; /* Center images */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Cột linh hoạt, min 200px */
+    gap: 10px; /* Khoảng cách giữa các ảnh */
     padding: 10px;
+    justify-content: center; /* Căn giữa gallery */
 }
 
 .gallery-item {
     position: relative;
-    width: 100%; /* Auto size according to grid */
-    padding-bottom: 100%; /* Maintain square ratio */
+    width: 100%; /* Chiếm toàn bộ chiều rộng cột */
+    padding-bottom: 100%; /* Tỷ lệ khung vuông */
     overflow: hidden;
     background-color: #fff;
-    transition: transform 0.3s ease; /* Smooth transition effect */
+    transition: transform 0.3s ease; /* Hiệu ứng phóng to */
 }
 
 .gallery-item:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
 }
 
 .gallery-item img {
@@ -279,44 +279,38 @@ header button#menu-toggle:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure images fit frame */
-    transition: opacity 0.3s ease; /* Smooth transition effect */
+    object-fit: cover; /* Cắt ảnh để khớp kích thước khung */
+    transition: opacity 0.3s ease; /* Hiệu ứng mờ dần */
 }
 
 .gallery-item:hover img {
-    opacity: 0.7; /* Dim image on hover */
+    opacity: 0.8; /* Làm mờ ảnh khi hover */
 }
 
 .gallery-item p {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center text */
+    transform: translate(-50%, -50%); /* Canh giữa văn bản */
     padding: 5px 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    color: white; /* White text */
-    opacity: 0; /* Hide text by default */
-    transition: opacity 0.3s ease; /* Smooth transition effect */
+    background-color: rgba(0, 0, 0, 0.5); /* Nền đen trong suốt */
+    color: white; /* Màu chữ trắng */
+    opacity: 0; /* Ẩn văn bản mặc định */
+    transition: opacity 0.3s ease; /* Hiệu ứng mượt */
     margin: 0;
 }
 
 .gallery-item:hover p {
-    opacity: 1; /* Show text on hover */
+    opacity: 1; /* Hiện văn bản khi hover */
 }
 
 /* Responsive Design */
 @media (max-width: 767px) {
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Smaller minimum size for mobile */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Giảm kích thước ảnh cho màn hình nhỏ */
     }
 
     .gallery-item p {
-        font-size: 12px; /* Smaller font size for mobile */
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensure images fit frame */
+        font-size: 12px; /* Giảm cỡ chữ cho màn hình nhỏ */
     }
 }
