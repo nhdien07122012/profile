@@ -1,5 +1,6 @@
+/* Common Styles */
 body {
-    font-family: 'Roboto Mono', monospace; /* Sử dụng font của Copilot */
+    font-family: 'Roboto Mono', monospace; /* Use Copilot font */
     margin: 0;
     padding: 0;
     display: flex;
@@ -7,8 +8,8 @@ body {
 }
 
 .sidebar {
-    width: 40px; /* Kích thước phù hợp */
-    background-color: #444444d3; /* Màu thanh điều hướng */
+    width: 40px; /* Suitable size */
+    background-color: #444444d3; /* Navigation bar color */
     color: white;
     padding: 10px;
     flex-shrink: 0;
@@ -24,8 +25,8 @@ body {
 }
 
 .sidebar.active {
-    width: 120px; /* Kích thước phù hợp */
-    left: 0; /* Căn lề sang bên trái */
+    width: 120px; /* Suitable size */
+    left: 0; /* Align to the left */
 }
 
 .sidebar .profile {
@@ -36,8 +37,8 @@ body {
 }
 
 .sidebar .profile img {
-    width: 45px; /* Kích thước phù hợp */
-    height: 45px; /* Kích thước phù hợp */
+    width: 45px; /* Suitable size */
+    height: 45px; /* Suitable size */
     border-radius: 50%;
 }
 
@@ -48,7 +49,7 @@ body {
 }
 
 .sidebar nav ul li {
-    margin-bottom: 20px; /* Tăng khoảng cách giữa các chức năng */
+    margin-bottom: 20px; /* Increase gap between functions */
     display: flex;
     justify-content: center;
 }
@@ -62,7 +63,7 @@ body {
 }
 
 .sidebar nav ul li a i {
-    font-size: 24px; /* Kích thước phù hợp */
+    font-size: 24px; /* Suitable size */
 }
 
 .sidebar nav ul li a .nav-text {
@@ -77,12 +78,12 @@ body {
 .main-content {
     flex-grow: 1;
     padding: 20px;
-    margin-left: 60px; /* Kích thước phù hợp */
+    margin-left: 60px; /* Suitable size */
     transition: margin-left 0.3s ease;
 }
 
 .main-content.active {
-    margin-left: 200px; /* Kích thước phù hợp */
+    margin-left: 200px; /* Suitable size */
 }
 
 header {
@@ -94,25 +95,25 @@ header {
 }
 
 header button#menu-toggle {
-    display: block; /* Luôn hiển thị */
+    display: block; /* Always visible */
     font-size: 24px;
-    background-color: #007bff; /* Màu nền xanh dương */
-    color: white; /* Màu chữ trắng */
-    border: none; /* Bỏ viền */
-    border-radius: 8px; /* Bo góc viền */
-    padding: 10px 20px; /* Khoảng cách nội dung */
-    cursor: pointer; /* Đổi con trỏ thành bàn tay khi rê chuột vào */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi */
+    background-color: #007bff; /* Blue background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Round border */
+    padding: 10px 20px; /* Padding */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
 }
 
 header button#menu-toggle:hover {
-    background-color: #0056b3; /* Đổi màu nền khi hover */
-    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+    background-color: #0056b3; /* Change background color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 header button#menu-toggle:focus {
-    outline: none; /* Bỏ viền focus mặc định */
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Thêm viền shadow khi focus */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
 }
 
 .personal-profile .cover-photo {
@@ -126,15 +127,15 @@ header button#menu-toggle:focus {
 .personal-profile .cover-photo img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Bảo đảm hình ảnh bìa luôn vừa với khung */
+    object-fit: cover; /* Ensure cover photo fits frame */
 }
 
 .personal-profile .avatar {
-    width: 150px; /* Kích thước phù hợp */
-    height: 150px; /* Kích thước phù hợp */
+    width: 150px; /* Suitable size */
+    height: 150px; /* Suitable size */
     border-radius: 50%;
     overflow: hidden;
-    margin: -75px auto 20px; /* Vị trí phù hợp */
+    margin: -75px auto 20px; /* Suitable position */
     position: relative;
     border: 5px solid #fff;
     z-index: 1;
@@ -144,7 +145,7 @@ header button#menu-toggle:focus {
 .personal-profile .avatar img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Bảo đảm hình ảnh avatar luôn vừa với khung */
+    object-fit: cover; /* Ensure avatar fits frame */
 }
 
 .personal-profile .info-section {
@@ -156,7 +157,7 @@ header button#menu-toggle:focus {
 }
 
 .personal-profile .personal-info {
-    text-align: left; /* Căn lề sang bên trái */
+    text-align: left; /* Align text to left */
     flex: 1;
 }
 
@@ -173,55 +174,149 @@ header button#menu-toggle:focus {
 }
 
 .personal-profile .personal-info p i {
-    margin-right: 10px; /* Khoảng cách phù hợp */
+    margin-right: 10px; /* Suitable gap */
 }
 
 .personal-profile .qr-code {
-    display: flex; /* Dùng flexbox để căn giữa */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
+    display: flex; /* Use flexbox to center */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     margin-top: 20px;
-    width: 100%; /* Đảm bảo mã QR không bị tràn */
-    height: 100%; /* Đảm bảo chứa đủ không gian */
+    width: 100%; /* Ensure QR code does not overflow */
+    height: 100%; /* Ensure enough space */
 }
 
 .personal-profile .qr-code img {
-    width: 350px; /* Kích thước mã QR */
-    height: 350px; /* Kích thước mã QR */
-    object-fit: contain; /* Giữ tỷ lệ gốc của hình ảnh */
+    width: 350px; /* QR code size */
+    height: 350px; /* QR code size */
+    object-fit: contain; /* Maintain image aspect ratio */
 }
 
-/* Thiết kế đáp ứng (Responsive Design) */
-@media (min-width: 120[_{{{CITATION{{{_1{](https://github.com/StephenMercer/StephensCode/tree/4a5694be6beab4feed9ba061eb5c5ea57a031fd2/JavaScript%2FJSCourseCodeNotes%2F25_SelectingMultipleDOMElements.md)[_{{{CITATION{{{_2{](https://github.com/Hami-Lemon/note/tree/8e7ae5b41e53c2cf9d2c6418e30c87123b8037b4/Java%2Fweb%E5%BC%80%E5%8F%91%2F%E5%89%8D%E7%AB%AF.md)[_{{{CITATION{{{_3{](https://github.com/jacoewhi/DescriptionTemplatingSystem/tree/e89d1e71a3689dcf960a472fa53495caf1be8c45/oldSpecGenerations%2Fpanelview.php)
+/* Responsive Design */
+@media (min-width: 1200px) {
+    .personal-profile .cover-photo {
+        height: 400px;
+    }
+    .personal-profile .avatar {
+        width: 200px;
+        height: 200px;
+        margin: -100px auto 20px;
+    }
+    .personal-profile .personal-info h1,
+    .personal-profile .personal-info p {
+        font-size: 18px;
+    }
+}
 
-/* CSS cũ sẽ được giữ nguyên */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .personal-profile .cover-photo {
+        height: 300px;
+    }
+    .personal-profile .avatar {
+        width: 150px;
+        height: 150px;
+        margin: -75px auto 20px;
+    }
+    .personal-profile .personal-info h1,
+    .personal-profile .personal-info p {
+        font-size: 16px;
+    }
+}
 
+@media (max-width: 767px) {
+    .sidebar {
+        left: -60px;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .main-content {
+        margin-left: auto;
+    }
+    .main-content.active {
+        margin-left: auto;
+    }
+    .personal-profile .cover-photo {
+        height: 200px;
+        width: auto;
+    }
+    .personal-profile .avatar {
+        width: 100px;
+        height: 100px;
+        margin: -50px auto 10px;
+    }
+    .personal-profile .personal-info h1,
+    .personal-profile .personal-info p {
+        font-size: 16px;
+    }
+}
+
+/* Gallery Styles */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 150px); /* Kích thước ô vuông cố định là 150px */
-    gap: 10px; /* Khoảng cách giữa các hình ảnh */
-    justify-content: center; /* Căn giữa các hình ảnh */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Minimum square size 100px */
+    gap: 10px; /* Gap between images */
+    justify-content: center; /* Center images */
     padding: 10px;
 }
 
 .gallery-item {
     position: relative;
-    width: 150px; /* Kích thước cố định */
-    height: 150px; /* Kích thước cố định */
+    width: 100%; /* Auto size according to grid */
+    padding-bottom: 100%; /* Maintain square ratio */
     overflow: hidden;
     background-color: #fff;
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Bảo đảm hình ảnh luôn vừa với khung */
+    object-fit: cover; /* Ensure images fit frame */
+    transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+.gallery-item:hover img {
+    opacity: 0.7; /* Dim image on hover */
 }
 
 .gallery-item p {
-    padding: 5px;
-    text-align: center;
-    background-color: #f8f8f8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center text */
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white; /* White text */
+    opacity: 0; /* Hide text by default */
+    transition: opacity 0.3s ease; /* Smooth transition effect */
     margin: 0;
 }
 
+.gallery-item:hover p {
+    opacity: 1; /* Show text on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Smaller minimum size for mobile */
+    }
+
+    .gallery-item p {
+        font-size: 12px; /* Smaller font size for mobile */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure images fit frame */
+    }
+}
