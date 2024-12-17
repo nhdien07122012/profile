@@ -32,6 +32,12 @@ body {
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Tăng độ đậm của shadow khi sidebar mở */
 }
 
+/* Tắt shadow trên màn hình nhỏ khi sidebar ẩn */
+@media (max-width: 767px) {
+    .sidebar {
+        box-shadow: none; /* Luôn tắt shadow trên điện thoại */
+    }
+}
 
 .sidebar .profile {
     width: 100%;
@@ -237,6 +243,9 @@ header button#menu-toggle:focus {
     .main-content.active {
         margin-left: 80px; /* Tăng lề khi sidebar mở */
     }
+    .sidebar {
+        box-shadow: none; /* Luôn tắt shadow trên điện thoại */
+    }
 }
 
 
@@ -247,12 +256,7 @@ header button#menu-toggle:focus {
     .sidebar.active {
         left: 0;
     }
-    .main-content {
-        margin-left: auto;
-    }
-    .main-content.active {
-        margin-left: auto;
-    }
+  
     .personal-profile .cover-photo {
         height: 250px;
         width: auto;

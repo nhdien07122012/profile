@@ -8,11 +8,21 @@ document.addEventListener("DOMContentLoaded", function() {
         event.stopPropagation(); // Ngăn chặn sự kiện click lan sang các phần tử khác
         sidebar.classList.toggle("active");
         mainContent.classList.toggle("active");
+
+        // Thêm hoặc xóa class 'no-shadow' để ẩn shadow
+        if (!sidebar.classList.contains("active")) {
+            sidebar.classList.add("no-shadow");
+        } else {
+            sidebar.classList.remove("no-shadow");
+        }
     });
 
     // Tự động ẩn sidebar khi click vào vùng nội dung chính
     mainContent.addEventListener("click", function() {
         sidebar.classList.remove("active");
         mainContent.classList.remove("active");
+
+        // Thêm class 'no-shadow' khi sidebar ẩn
+        sidebar.classList.add("no-shadow");
     });
 });
