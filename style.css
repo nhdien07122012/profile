@@ -49,10 +49,11 @@ body {
 }
 
 .sidebar nav ul li {
-    margin-bottom: 20px; /* Increase gap between functions */
+    margin-bottom: 20px; /* Tăng khoảng cách giữa các chức năng */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Căn giữa theo chiều ngang */
 }
+
 
 .sidebar nav ul li a {
     color: white;
@@ -68,7 +69,7 @@ body {
 
 .sidebar nav ul li a .nav-text {
     display: none;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .sidebar.active .nav-text {
@@ -187,41 +188,53 @@ header button#menu-toggle:focus {
 }
 
 .personal-profile .qr-code img {
-    width: 350px; /* QR code size */
-    height: 350px; /* QR code size */
-    object-fit: contain; /* Maintain image aspect ratio */
+    width: 100%; /* Chiều rộng linh hoạt, chiếm toàn bộ khung chứa */
+    max-width: 350px; /* Giới hạn kích thước tối đa */
+    height: auto; /* Tự điều chỉnh chiều cao để giữ tỷ lệ ảnh */
+    object-fit: contain; /* Giữ tỷ lệ hình ảnh nguyên gốc */
 }
 
-/* Responsive Design */
-@media (min-width: 1200px) {
-    .personal-profile .cover-photo {
-        height: 400px;
-    }
-    .personal-profile .avatar {
-        width: 200px;
-        height: 200px;
-        margin: -100px auto 20px;
-    }
-    .personal-profile .personal-info h1,
-    .personal-profile .personal-info p {
-        font-size: 18px;
+@media (max-width: 767px) {
+    .personal-profile .qr-code img {
+        max-width: 200px; /* Giảm kích thước tối đa trên màn hình nhỏ */
+        margin-top: 10px; /* Tăng khoảng cách phía trên nếu cần */
     }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-    .personal-profile .cover-photo {
-        height: 300px;
+.sidebar {
+    width: 40px; /* Chiều rộng mặc định */
+    transition: width 0.3s ease;
+}
+
+.sidebar.active {
+    width: 100px; /* Chiều rộng phù hợp khi sidebar mở */
+}
+
+.main-content {
+    margin-left: 60px; /* Lề bên trái mặc định */
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.active {
+    margin-left: 120px; /* Điều chỉnh lề khi sidebar mở */
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        left: -60px; /* Ẩn sidebar trên màn hình nhỏ */
     }
-    .personal-profile .avatar {
-        width: 150px;
-        height: 150px;
-        margin: -75px auto 20px;
+    .sidebar.active {
+        left: 0; /* Hiển thị sidebar khi active */
+        width: 80px; /* Chiều rộng nhỏ hơn */
     }
-    .personal-profile .personal-info h1,
-    .personal-profile .personal-info p {
-        font-size: 16px;
+    .main-content {
+        margin-left: 0; /* Loại bỏ lề trái để mở rộng nội dung */
+    }
+    .main-content.active {
+        margin-left: 80px; /* Tăng lề khi sidebar mở */
     }
 }
+
 
 @media (max-width: 767px) {
     .sidebar {
@@ -237,7 +250,7 @@ header button#menu-toggle:focus {
         margin-left: auto;
     }
     .personal-profile .cover-photo {
-        height: 200px;
+        height: 250px;
         width: auto;
     }
     .personal-profile .avatar {
