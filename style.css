@@ -194,19 +194,20 @@ header button#menu-toggle:focus {
 /* Thiết kế đáp ứng (Responsive Design) */
 @media (min-width: 120[_{{{CITATION{{{_1{](https://github.com/StephenMercer/StephensCode/tree/4a5694be6beab4feed9ba061eb5c5ea57a031fd2/JavaScript%2FJSCourseCodeNotes%2F25_SelectingMultipleDOMElements.md)[_{{{CITATION{{{_2{](https://github.com/Hami-Lemon/note/tree/8e7ae5b41e53c2cf9d2c6418e30c87123b8037b4/Java%2Fweb%E5%BC%80%E5%8F%91%2F%E5%89%8D%E7%AB%AF.md)[_{{{CITATION{{{_3{](https://github.com/jacoewhi/DescriptionTemplatingSystem/tree/e89d1e71a3689dcf960a472fa53495caf1be8c45/oldSpecGenerations%2Fpanelview.php)
 
-    /* CSS cũ sẽ được giữ nguyên */
+/* CSS cũ sẽ được giữ nguyên */
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Khoảng cách giữa các hình ảnh */
-    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px); /* Kích thước ô vuông cố định là 150px */
+    gap: 10px; /* Khoảng cách giữa các hình ảnh */
+    justify-content: center; /* Căn giữa các hình ảnh */
+    padding: 10px;
 }
 
 .gallery-item {
-    width: calc(33.333% - 20px); /* Đảm bảo hình ảnh có kích thước bằng nhau và khoảng cách đều */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    position: relative;
+    width: 150px; /* Kích thước cố định */
+    height: 150px; /* Kích thước cố định */
     overflow: hidden;
     background-color: #fff;
 }
@@ -214,12 +215,13 @@ header button#menu-toggle:focus {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Đảm bảo hình ảnh luôn vừa với khung */
+    object-fit: cover; /* Bảo đảm hình ảnh luôn vừa với khung */
 }
 
 .gallery-item p {
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     background-color: #f8f8f8;
     margin: 0;
 }
+

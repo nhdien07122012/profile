@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Bộ sưu tập</title>
+    <title>Diễn Nguyễn Profile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -16,9 +16,14 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i><span class="nav-text">Trang chủ</span></a></li>
-                <li><a href="qr.html" target="_blank"><i class="fas fa-qrcode"></i><span class="nav-text">Quét QR</span></a></li>
-                <li><a href="gallery.html"><i class="fas fa-images"></i><span class="nav-text">Bộ sưu tập</span></a></li>
+                <li><a href="#"><i class="fas fa-home"></i><span class="nav-text">Trang chủ</span></a></li>
+                <li>
+                    <a href="qr.html" target="_blank">
+                        <i class="fas fa-qrcode"></i>
+                        <span class="nav-text">Quét QR</span>
+                    </a>
+                </li>                
+                <li><a href="gallery.html" target="_blank"><i class="fas fa-images"></i><span class="nav-text">Bộ sưu tập</span></a></li> <!-- Liên kết bộ sưu tập -->
                 <li><a href="#"><i class="fas fa-plane"></i><span class="nav-text">Leave Requests</span></a></li>
             </ul>
         </nav>
@@ -29,16 +34,24 @@
         <header>
             <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
         </header>
-        <section class="gallery">
-            <div class="gallery-item">
-                <img src="image1.jpg" alt="Image 1">
-                <p>Ngày chụp: 01/01/2023</p>
+        <section class="personal-profile">
+            <div class="cover-photo">
+                <img src="cover-photo.jpg" alt="Cover Photo" loading="lazy">
             </div>
-            <div class="gallery-item">
-                <img src="image2.jpg" alt="Image 2">
-                <p>Ngày chụp: 02/02/2023</p>
+            <div class="avatar">
+                <img src="profile-pic.jpg" alt="Avatar" loading="lazy">
             </div>
-            <!-- Thêm các hình ảnh khác tương tự -->
+            <div class="info-section">
+                <div class="personal-info">
+                    <h1>Nguyễn Hoài Diễn</h1>
+                    <p><i class="fas fa-phone"></i> <strong>Số điện thoại:</strong> 0399962032</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> 575 Nguyễn Trung Trực, An Hòa, Rạch Giá, Kiên Giang</p>
+                    <p><i class="fas fa-building"></i> <strong>Nơi làm việc:</strong> Bưu điện tỉnh Kiên Giang</p>
+                </div>
+                <div class="qr-code" id="qr-code">
+                    <img src="qr-code.png" alt="QR Code" loading="lazy">
+                </div>
+            </div>
         </section>
     </div>
 
