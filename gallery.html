@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tải JS bất đồng bộ để không làm chậm trang -->
+    <script src="main.js" async></script>
 </head>
 <body>
     <!-- Sidebar -->
@@ -28,49 +30,103 @@
     <div class="main-content" id="main-content">
         <header>
             <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
-            <div class="upload-section">
-                <form id="upload-form" method="POST" enctype="multipart/form-data" action="upload.php">
-                    <input type="file" name="image" id="image-upload" accept="image/*" required>
-                    <input type="date" name="image-date" id="image-date" placeholder="Chọn ngày chụp" required>
-                    <button type="submit">Thêm ảnh</button>
-                </form>
-            </div>
-            
-            
         </header>
         <section class="gallery">
+            <!-- Lazy load images -->
             <div class="gallery-item">
-                <img src="gallery/IMG_1280.JPG" alt="Image 1">
-                <p>Ngày chụp: 01/01/2023</p>
+                <img src="gallery/beauty_1693621927876.JPG" alt="Image 1" loading="lazy">
+                <p>Ngày chụp: 02/09/2023</p>
+            </div>
+              <div class="gallery-item">
+                <img src="gallery/IMG_0770.jpg" alt="Image 3" loading="lazy">
+                <p>Ngày chụp: 04/09/2023</p>
             </div>
             <div class="gallery-item">
-                <img src="gallery/IMG_1949.JPG" alt="Image 2">
-                <p>Ngày chụp: 02/02/2023</p>
+                <img src="gallery/IMG_0649.JPG" alt="Image 2" loading="lazy">
+                <p>Ngày chụp: 06/09/2023</p>
+            </div>
+            <!-- Thêm các hình ảnh khác với lazy loading -->
+            <div class="gallery-item">
+                <img src="gallery/IMG_2686.JPG" alt="Image 30" loading="lazy">
+                <p>Ngày chụp: 15/06/2023</p>
             </div>
             <div class="gallery-item">
-                <img src="gallery/IMG_1949.JPG" alt="Image 2">
-                <p>Ngày chụp: 02/02/2023</p>
+                <img src="gallery/IMG_1428.JPG" alt="Image 26" loading="lazy">
+                <p>Ngày chụp: 23/11/2024</p>
             </div>
             <div class="gallery-item">
-                <img src="gallery/IMG_1949.JPG" alt="Image 2">
-                <p>Ngày chụp: 02/02/2023</p>
+                <img src="gallery/IMG_1105.JPG" alt="Image 27" loading="lazy">
+                <p>Ngày chụp: 22/11/2024</p>
             </div>
             <div class="gallery-item">
-                <img src="gallery/IMG_1949.JPG" alt="Image 2">
-                <p>Ngày chụp: 02/02/2023</p>
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
             </div>
             <div class="gallery-item">
-                <img src="gallery/IMG_1949.JPG" alt="Image 2">
-                <p>Ngày chụp: 02/02/2023</p>
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
             </div>
             <div class="gallery-item">
-                <img src="gallery/IMG_1949.JPG" alt="Image 2">
-                <p>Ngày chụp: 02/02/2023</p>
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
             </div>
-            <!-- Thêm các hình ảnh khác tương tự -->
-        </section>
-    </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/IMG_1146_Original.jpg" alt="Image 28" loading="lazy">
+                <p>Ngày chụp: 21/11/2024</p>
+            </div>
 
-    <script src="main.js"></script>
+        </section>
+
+      
+
+    <script src="main.js" async></script>
 </body>
 </html>
