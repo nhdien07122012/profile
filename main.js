@@ -24,50 +24,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Thêm ảnh vào gallery
-    if (addImageBtn && fileInput && dateInput && gallerySection) {
-        addImageBtn.addEventListener("click", function () {
-            const file = fileInput.files[0];
-            const date = dateInput.value;
+    
+    // Số lượng truy cập
+    // Lấy số lượt truy cập từ localStorage
+    let visitCount = localStorage.getItem("visitCount");
 
-            if (file && date) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const galleryItem = document.createElement("div");
-                    galleryItem.classList.add("gallery-item");
-                    galleryItem.innerHTML = `
-                        <img src="${e.target.result}" alt="Uploaded Image">
-                        <p>Ngày chụp: ${date}</p>
-                    `;
-                    gallerySection.appendChild(galleryItem);
-
-                    fileInput.value = "";
-                    dateInput.value = "";
-                };
-                reader.readAsDataURL(file);
-            } else {
-                alert("Vui lòng chọn ảnh và nhập ngày chụp!");
-            }
-        });
+    // Nếu chưa có, đặt giá trị ban đầu là 0
+    if (visitCount === null) {
+        visitCount = 0;
     }
 
-    // Tải dữ liệu gallery từ JSON
-    fetch("gallery/gallery-data.json")
-        .then((response) => response.json())
-        .then((data) => {
-            if (gallerySection) {
-                data.forEach((item) => {
-                    const galleryItem = document.createElement("div");
-                    galleryItem.classList.add("gallery-item");
-                    galleryItem.innerHTML = `
-                        <img src="${item.image}" alt="Uploaded Image">
-                        <p>Ngày chụp: ${item.date}</p>
-                    `;
-                    gallerySection.appendChild(galleryItem);
-                });
-            }
-        })
-        .catch((error) => console.error("Lỗi khi tải dữ liệu:", error));
+    // Tăng giá trị mỗi khi người dùng truy cập
+    visitCount++;
+
+    // Lưu lại vào localStorage
+    localStorage.setItem("visitCount", visitCount);
+
+    // Hiển thị số lượt truy cập trên trang
+    const visitCounter = document.getElementById("visit-counter");
+    if (visitCounter) {
+        visitCounter.textContent = `Viewer: ${visitCount}`;
+    }
+
 
     // Xử lý preloader
     if (preloader) {
