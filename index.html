@@ -148,12 +148,15 @@
             --progress-width: 85%;
             animation-delay: 0.8s;
         }
-
         /* CSS cho image*/
        
     </style>
 </head>
-<body>
+<body class="hidden">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="profile">
@@ -175,7 +178,7 @@
     </div>
     
     <!-- Main Content -->
-    <div class="main-content" id="main-content">
+    <div class="main-content" id="main-content" style="display: block;">
         <header>
             <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
             <!-- <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
@@ -264,5 +267,6 @@
     </div>
 
     <script src="main.js"></script>
+    
 </body>
 </html>

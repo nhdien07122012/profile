@@ -1,85 +1,85 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const sidebar = document.getElementById("sidebar");
     const mainContent = document.getElementById("main-content");
-
-    // Toggle sidebar khi nhấn nút menu
-    menuToggle.addEventListener("click", function(event) {
-        event.stopPropagation(); // Ngăn chặn sự kiện click lan sang các phần tử khác
-        sidebar.classList.toggle("active");
-        mainContent.classList.toggle("active");
-
-        // Thêm hoặc xóa class 'no-shadow' để ẩn shadow
-        if (!sidebar.classList.contains("active")) {
-            sidebar.classList.add("no-shadow");
-        } else {
-            sidebar.classList.remove("no-shadow");
-        }
-    });
-
-    // Tự động ẩn sidebar khi click vào vùng nội dung chính
-    mainContent.addEventListener("click", function() {
-        sidebar.classList.remove("active");
-        mainContent.classList.remove("active");
-
-        // Thêm class 'no-shadow' khi sidebar ẩn
-        sidebar.classList.add("no-shadow");
-    });
-});
-
-document.getElementById("add-image-btn").addEventListener("click", function () {
+    const addImageBtn = document.getElementById("add-image-btn");
     const fileInput = document.getElementById("image-upload");
     const dateInput = document.getElementById("image-date");
     const gallerySection = document.querySelector(".gallery");
+    const preloader = document.getElementById("preloader");
 
-    const file = fileInput.files[0];
-    const date = dateInput.value;
+    // Toggle sidebar
+    if (menuToggle && sidebar && mainContent) {
+        menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            sidebar.classList.toggle("active");
+            mainContent.classList.toggle("active");
+            sidebar.classList.toggle("no-shadow", !sidebar.classList.contains("active"));
+        });
 
-    if (file && date) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            // Tạo thẻ gallery-item mới
-            const galleryItem = document.createElement("div");
-            galleryItem.classList.add("gallery-item");
-            galleryItem.innerHTML = `
-                <img src="${e.target.result}" alt="Uploaded Image">
-                <p>Ngày chụp: ${date}</p>
-            `;
-            // Thêm vào gallery
-            gallerySection.appendChild(galleryItem);
-
-            // Reset form
-            fileInput.value = "";
-            dateInput.value = "";
-        };
-        reader.readAsDataURL(file);
-    } else {
-        alert("Vui lòng chọn ảnh và nhập ngày chụp!");
+        mainContent.addEventListener("click", function () {
+            sidebar.classList.remove("active");
+            mainContent.classList.remove("active");
+            sidebar.classList.add("no-shadow");
+        });
     }
-});
 
-// Nút ẩn/hiện sidebar (đã có sẵn trong file của bạn)
-document.getElementById("menu-toggle").addEventListener("click", function () {
-    document.getElementById("sidebar").classList.toggle("hidden");
-});
+    // Thêm ảnh vào gallery
+    if (addImageBtn && fileInput && dateInput && gallerySection) {
+        addImageBtn.addEventListener("click", function () {
+            const file = fileInput.files[0];
+            const date = dateInput.value;
 
-document.addEventListener("DOMContentLoaded", function () {
+            if (file && date) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const galleryItem = document.createElement("div");
+                    galleryItem.classList.add("gallery-item");
+                    galleryItem.innerHTML = `
+                        <img src="${e.target.result}" alt="Uploaded Image">
+                        <p>Ngày chụp: ${date}</p>
+                    `;
+                    gallerySection.appendChild(galleryItem);
+
+                    fileInput.value = "";
+                    dateInput.value = "";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert("Vui lòng chọn ảnh và nhập ngày chụp!");
+            }
+        });
+    }
+
+    // Tải dữ liệu gallery từ JSON
     fetch("gallery/gallery-data.json")
         .then((response) => response.json())
         .then((data) => {
-            const gallerySection = document.querySelector(".gallery");
-
-            data.forEach((item) => {
-                const galleryItem = document.createElement("div");
-                galleryItem.classList.add("gallery-item");
-                galleryItem.innerHTML = `
-                    <img src="${item.image}" alt="Uploaded Image">
-                    <p>Ngày chụp: ${item.date}</p>
-                `;
-                gallerySection.appendChild(galleryItem);
-            });
+            if (gallerySection) {
+                data.forEach((item) => {
+                    const galleryItem = document.createElement("div");
+                    galleryItem.classList.add("gallery-item");
+                    galleryItem.innerHTML = `
+                        <img src="${item.image}" alt="Uploaded Image">
+                        <p>Ngày chụp: ${item.date}</p>
+                    `;
+                    gallerySection.appendChild(galleryItem);
+                });
+            }
         })
         .catch((error) => console.error("Lỗi khi tải dữ liệu:", error));
+
+    // Xử lý preloader
+    if (preloader) {
+        setTimeout(() => {
+            preloader.style.opacity = "0";
+            preloader.style.transition = "opacity 1s ease";
+
+            setTimeout(() => {
+                preloader.style.display = "none";
+                document.body.classList.remove("hidden");
+                document.body.classList.add("visible");
+            }, 1000);
+        }, 500);
+    }
 });
-
-
