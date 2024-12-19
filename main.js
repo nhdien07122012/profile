@@ -80,6 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.body.classList.remove("hidden");
                 document.body.classList.add("visible");
             }, 1000);
-        }, 500);
+        }, 2000);
     }
 });
