@@ -10,7 +10,7 @@ body {
 /* Thêm hiệu ứng shadow cho sidebar */
 .sidebar {
     width: 40px; /* Chiều rộng mặc định */
-    background-color: #007bff; /* Màu nền sidebar */
+    background-color: #005ae0; /* Màu nền sidebar */
     color: white;
     padding: 10px;
     flex-shrink: 0;
@@ -50,6 +50,7 @@ body {
     width: 45px; /* Suitable size */
     height: 45px; /* Suitable size */
     border-radius: 50%;
+    border: 2px solid #ffffff83;
 }
 
 .sidebar nav ul {
@@ -108,7 +109,7 @@ header {
 header button#menu-toggle {
     display: block; /* Always visible */
     font-size: 24px;
-    background-color: #007bff; /* Blue background color */
+    background-color: #005ae0; /* Blue background color */
     color: white; /* White text color */
     border: none; /* Remove border */
     border-radius: 8px; /* Round border */
