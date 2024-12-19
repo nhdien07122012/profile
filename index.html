@@ -17,7 +17,47 @@
             background-color: #f9f9f9;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            
         }
+
+            /* Hiệu ứng slide-in cho từng hàng trong bảng */
+            @keyframes slideIn {
+                0% {
+                    opacity: 0; /* Ẩn đi lúc đầu */
+                    transform: translateX(-50px); /* Trượt từ trái sang phải */
+                }
+                100% {
+                    opacity: 1; /* Hiện rõ */
+                    transform: translateX(0); /* Trở về vị trí ban đầu */
+                }
+            }
+
+            .info-table thead {
+                opacity: 0; /* Ẩn các hàng ban đầu */
+                animation: slideIn 1s ease-out forwards; /* Áp dụng hiệu ứng slideIn */
+            }
+            .info-table tbody tr {
+                opacity: 0; /* Ẩn các hàng ban đầu */
+                animation: slideIn 1s ease-out forwards; /* Áp dụng hiệu ứng slideIn */
+            }
+
+            /* Tạo độ trễ cho từng hàng */
+            .info-table tbody tr:nth-child(1) {
+                animation-delay: 0.2s; /* Hàng 1: Trễ 0.2s */
+            }
+
+            .info-table tbody tr:nth-child(2) {
+                animation-delay: 0.4s; /* Hàng 2: Trễ 0.4s */
+            }
+
+            .info-table tbody tr:nth-child(3) {
+                animation-delay: 0.6s; /* Hàng 3: Trễ 0.6s */
+            }
+
+            .info-table tbody tr:nth-child(4) {
+                animation-delay: 0.8s; /* Hàng 4: Trễ 0.8s */
+            }
+            /* Hiệu ứng slide-in cho từng hàng trong bảng */
 
         .info-table th, .info-table td {
             padding: 12px 16px;
@@ -46,7 +86,70 @@
                 padding: 8px 12px;
             }
         }
-        /*CSS cho button bật tắt darkmode*/
+        /*CSS cho thanh tiến trình*/
+        /* Container cho thanh tiến trình */
+        /* Keyframes cho hiệu ứng chạy thanh tiến trình */
+        @keyframes fillProgress {
+            0% {
+                width: 0; /* Bắt đầu từ 0% */
+            }
+            100% {
+                width: var(--progress-width); /* Kết thúc tại mức phần trăm được chỉ định */
+            }
+        }
+
+        /* Container cho thanh tiến trình */
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 20px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Thanh tiến trình chính */
+        .progress-bar {
+            height: 100%;
+            text-align: right;
+            padding-right: 10px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 20px;
+            border-radius: 10px 0 0 10px;
+
+            /* Animation */
+            width: 0; /* Ban đầu width = 0 */
+            animation: fillProgress 2s ease-out forwards; /* Hiệu ứng chạy */
+        }
+
+        /* Màu sắc riêng cho từng kỹ năng */
+        .progress-bar.html-css {
+            background-color: #3498db; /* Xanh dương */
+            --progress-width: 90%; /* Dùng biến để kiểm soát mức phần trăm */
+            animation-delay: 0.2s; /* Độ trễ */
+        }
+
+        .progress-bar.javascript {
+            background-color: #f1c40f; /* Vàng */
+            --progress-width: 75%;
+            animation-delay: 0.4s;
+        }
+
+        .progress-bar.sql {
+            background-color: #e67e22; /* Cam */
+            --progress-width: 60%;
+            animation-delay: 0.6s;
+        }
+
+        .progress-bar.photoshop {
+            background-color: #8e44ad; /* Tím */
+            --progress-width: 85%;
+            animation-delay: 0.8s;
+        }
+
+
         
     </style>
 </head>
@@ -75,7 +178,7 @@
     <div class="main-content" id="main-content">
         <header>
             <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
-           <!-- <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
+            <!-- <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
                 <i class="fas fa-moon"></i>
             </button>  -->
         </header>
@@ -111,6 +214,43 @@
                             <td><i class="fas fa-building"></i> Nơi làm việc</td>
                             <td>Bưu điện tỉnh Kiên Giang</td>
                         </tr>
+                        <tr>
+                            <td colspan="2"><strong>Kỹ năng</strong></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-code"></i> HTML & CSS</td>
+                            <td>
+                                <div class="progress-container">
+                                    <div class="progress-bar html-css" style="width: 90%;">90%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-laptop-code"></i> JavaScript</td>
+                            <td>
+                                <div class="progress-container">
+                                    <div class="progress-bar javascript" style="width: 75%;">75%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-database"></i> SQL</td>
+                            <td>
+                                <div class="progress-container">
+                                    <div class="progress-bar sql" style="width: 60%;">60%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-paint-brush"></i> Photoshop</td>
+                            <td>
+                                <div class="progress-container">
+                                    <div class="progress-bar photoshop" style="width: 85%;">85%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+
                     </tbody>
                 </table>
                 <div class="qr-code" id="qr-code">
