@@ -204,6 +204,8 @@ header button#menu-toggle:focus {
     max-width: 350px; /* Giới hạn kích thước tối đa */
     height: auto; /* Tự điều chỉnh chiều cao để giữ tỷ lệ ảnh */
     object-fit: contain; /* Giữ tỷ lệ hình ảnh nguyên gốc */
+    border: 3px solid #007bff; /* Thêm viền màu giống button sidebar */
+    border-radius: 10px; /* Thêm bo tròn cho viền */
 }
 
 @media (max-width: 767px) {
@@ -273,5 +275,21 @@ header button#menu-toggle:focus {
         font-size: 16px;
     }
 }
+
+
+/* Preloader Styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Màu nền của preloader */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Bảo đảm preloader luôn ở trên cùng */
+}
+
 
 
