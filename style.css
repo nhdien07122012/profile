@@ -362,7 +362,7 @@ body.visible #main-content {
 
         .contact-us {
             background: var(--form-bg);
-            padding: 20px 40px;
+            padding: 20px 50px;
             border-top: 10px solid var(--form-border);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
