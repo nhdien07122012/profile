@@ -128,25 +128,25 @@
         .progress-bar.html-css {
             background-color: #3498db; /* Xanh dương */
             --progress-width: 90%; /* Dùng biến để kiểm soát mức phần trăm */
-            animation-delay: 0.2s; /* Độ trễ */
+            animation-delay: 3s; /* Độ trễ */
         }
 
         .progress-bar.javascript {
             background-color: #f1c40f; /* Vàng */
             --progress-width: 75%;
-            animation-delay: 0.4s;
+            animation-delay: 3s;
         }
 
         .progress-bar.sql {
             background-color: #e67e22; /* Cam */
             --progress-width: 60%;
-            animation-delay: 0.6s;
+            animation-delay: 3s;
         }
 
         .progress-bar.photoshop {
             background-color: #8e44ad; /* Tím */
             --progress-width: 85%;
-            animation-delay: 0.8s;
+            animation-delay: 3s;
         }
         /* CSS cho QR*/
         /* Lớp để phóng to ảnh */
@@ -278,7 +278,26 @@
                     <img src="qr-code.png" alt="QR Code" loading="lazy">
                 </div>
             </div>
-        </section>
+            <div class="contact-us">
+                <h2>Liên Hệ</h2>
+                <form action="#" method="POST">
+                    <label for="customerName">Họ tên<em>*</em></label>
+                    <input type="text" id="customerName" name="customerName" placeholder="Nhập họ tên của bạn" required>
+        
+                    <label for="customerEmail">EMAIL <em>*</em></label>
+                    <input type="email" id="customerEmail" name="customerEmail" placeholder="example@email.com" required>
+        
+                    <label for="customerPhone">SỐ ĐIỆN THOẠI</label>
+                    <input type="tel" id="customerPhone" name="customerPhone" placeholder="012-345-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        
+                    <label for="customerNote">NỘI DUNG TIN NHẮN <em>*</em></label>
+                    <textarea id="customerNote" name="customerNote" rows="4" placeholder="Nhập tin nhắn của bạn" required></textarea>
+                                         
+        
+                    <button type="submit">GỬI</button>
+                </form>
+                </div>
+            </section>
 
     </div>
 
