@@ -148,7 +148,23 @@
             --progress-width: 85%;
             animation-delay: 0.8s;
         }
-        /* CSS cho image*/
+        /* CSS cho QR*/
+        /* Lớp để phóng to ảnh */
+            .zoomed {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1.5);
+                z-index: 9999;
+                max-width: 90%;
+                max-height: 90%;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                cursor: zoom-out;
+                background-color: white;
+                border-radius: 10px;
+            }
+
        
     </style>
 </head>

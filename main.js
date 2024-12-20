@@ -60,4 +60,22 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
         }, 2000);
     }
+
+            // Lấy thẻ img trong div có id là "qr-code"
+        const qrImage = document.querySelector('#qr-code img');
+
+        // Thêm sự kiện click vào ảnh
+        qrImage.addEventListener('click', function () {
+            // Kiểm tra xem ảnh đã được phóng to chưa
+            if (this.classList.contains('zoomed')) {
+                // Nếu đã phóng to, xóa lớp zoomed (thu nhỏ ảnh lại)
+                this.classList.remove('zoomed');
+            } else {
+                // Nếu chưa phóng to, thêm lớp zoomed
+                this.classList.add('zoomed');
+            }
+});
+
+
+
 });
