@@ -216,7 +216,7 @@ header button#menu-toggle:focus {
 
 @media (max-width: 767px) {
     .personal-profile .qr-code img {
-        max-width: 350px; /* Giảm kích thước tối đa trên màn hình nhỏ */
+        max-width: 200px; /* Giảm kích thước tối đa trên màn hình nhỏ */
         margin-top: 10px; /* Tăng khoảng cách phía trên nếu cần */
     }
 }
