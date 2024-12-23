@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Quá trình làm việc</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+             .timeline {
+            position: relative;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-left: 2px solid #007bff;
+        }
+
+            .timeline-item {
+                position: relative;
+                margin-bottom: 40px;
+            }
+
+            .timeline-date {
+                position: absolute;
+                top: -10px; /* Đẩy lên phía trên timeline */
+                left: -14px; /* Canh giữa trên thanh tiến trình */
+                background-color: #007bff;
+                color: #fff;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 12px;
+                text-align: center;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .timeline-content {
+                margin-left: 40px; /* Đẩy ô nội dung cách thanh tiến trình */
+                background-color: #f9f9f9;
+                border-radius: 10px;
+                padding: 15px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .timeline-item:hover .timeline-content {
+                transform: scale(1.02);
+            }
+
+            .timeline-content h3 {
+                margin: 0;
+                font-size: 18px;
+                color: #007bff;
+                font-style: normal; /* Đảm bảo tiêu đề không in nghiêng */
+                font-weight: bold;  /* Đảm bảo chữ đậm nếu cần */
+            }
+
+            .timeline-content p {
+                font-size: 14px;
+                color: #555;
+                line-height: 1.6;
+                font-weight: bold;  /* Đảm bảo chữ đậm nếu cần */
+            }
+
+            .timeline-content ul {
+                padding-left: 16px;
+                list-style: disc;
+            }
+
+            @media (max-width: 767px) {
+                .timeline-date {
+                    font-size: 10px;
+                    top: -8px;
+                    left: -10px;
+                }
+                .timeline-content {
+                    padding: 10px;
+                }
+            }
+
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="profile">
+            <img src="profile-pic.jpg" alt="Profile Picture" loading="lazy">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i><span class="nav-text">Trang chủ</span></a></li>
+                <li><a href="qr.html"><i class="fas fa-qrcode"></i><span class="nav-text">Quét QR</span></a></li>
+                <li><a href="gallery.html"><i class="fas fa-images"></i><span class="nav-text">Bộ sưu tập</span></a></li>
+                <li><a href="work-history.html"> <i class="fas fa-briefcase"></i> <span class="nav-text">Quá trình làm việc</span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+                <header>
+                    <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
+                    
+                </header>
+                <section class="work-history">
+                    <h2>Quá trình làm việc</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                           <div class="timeline-date">08/2022 - Hiện tại</div>
+                           <h3>BƯU ĐIỆN TỈNH KIÊN GIANG</h3>
+                           <p>Vị trí: Giám sát bán hàng</p>
+                           <p>Nơi làm việc: Bưu điện tỉnh Kiên Giang</p>
+                           <p>Nội dung công việc:
+                               <ul>
+                                     <li>Chuyên quản BCCP dịch vụ Truyền thống,Thương mại điện tử</li>
+                                     <li>Chuyên quản BCCP dịch vụ Quốc tế</li>
+                               </ul>
+                           </p>
+                       </div>
+                   </div>
+
+                        <div class="timeline-item">
+                                 <div class="timeline-content">
+                                <div class="timeline-date">07/2022 - 08/2022</div>
+                                <h3>BƯU ĐIỆN THÀNH PHỐ RẠCH GIÁ</h3>
+                                <p>Vị trí: Nhân viên Hành chánh công</p>
+                                <p>Nơi làm việc: Bưu điện Thành phố Rạch Giá</p>
+                                <p>Nội dung công việc:
+                                    <ul>
+                                        <li>Phối hợp Công An Tỉnh/TP làm CCCD tại các đơn vị</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                            <div class="timeline-date">05/2021 - 07/2022</div>
+                            <h3>CHUYỂN PHÁT NHANH J&T (CN TIỀN GIANG)</h3>
+                            <p>Vị trí: Trưởng Bưu cục Châu Thành </p>
+                            <p>Nơi làm việc: Châu Thành - Tiền Giang</p>
+                            <p>Nội dung công việc:
+                                <ul>
+                                    <li>Quản lý nhân viên Bưu cục và shipper</li>
+                                    <li>Tìm kiếm khách hàng</li>
+                                </ul>
+                            </p>
+                        </div>  
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                        <div class="timeline-date">04/2021 - 05/2021</div>
+                        <h3>KHÁCH SẠN MEKONG MỸ THO</h3>
+                        <p>Vị trí: Nhân viên IT</p>
+                        <p>Nơi làm việc: TP.Mỹ Tho - Tiền Giang</p>
+                        <p>Nội dung công việc:
+                            <ul>
+                                <li>Kiểm tra, quản lý hệ thống khách sạn</li>
+                            </ul>
+                        </p>
+                    </div>                
+                </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                        <div class="timeline-date">08/2020 - 03/2021</div>
+                        <h3>CHUYỂN PHÁT NHANH J&T (CN CẦN THƠ)</h3>
+                        <p>Vị trí: Nhân viên nhượng quyền</p>
+                        <p>Nơi làm việc: TP.Cần Thơ</p>
+                        <p>Nội dung công việc:
+                            <ul>
+                                <li>Tìm kiếm phát triển KH Nhượng quyền</li>
+                            </ul>
+                        </p>
+                    </div> 
+                    <div class="timeline-content">
+                        <div class="timeline-date">06/2019 - 08/2020</div>
+                        <h3>CHUYỂN PHÁT NHANH J&T (CN CẦN THƠ)</h3>
+                        <p>Vị trí: Nhân viên Quản lý chất lượng</p>
+                        <p>Nơi làm việc: TP.Cần Thơ</p>
+                        <p>Nội dung công việc:
+                            <ul>
+                                <li>Xử lý khiếu nại, quản lý chất lượng đơn hàng</li>
+                            </ul>
+                        </p>
+                    </div> 
+                </div>
+
+                        <div class="timeline-item">
+                                <div class="timeline-content">
+                                <div class="timeline-date">đầu 2019 - 06/2019</div>
+                                <h3>KHÁCH SẠN DU LỊCH AN HOTEL CẦN THƠ </h3>
+                                <p>Vị trí: Nhân viên quản lý khách sạn</p>
+                                <p>Nơi làm việc: Hưng Phú - TP.Cần Thơ</p>
+                                <p>Nội dung công việc:
+                                    <ul>
+                                        <li>Đón tiếp khách du lịch, sắp xếp phòng</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
