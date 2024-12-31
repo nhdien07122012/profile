@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../test_py"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "profile",
+		"git.ignoreLimitWarning": true
+	}
+}
