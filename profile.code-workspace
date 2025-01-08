@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../test_py"
+		},
+		{
+			"path": "../VScode"
 		}
 	],
 	"settings": {
