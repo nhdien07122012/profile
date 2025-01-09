@@ -79,6 +79,77 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
+        .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay p.caption {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    max-width: 80%; /* Giới hạn chiều rộng văn bản */
+}
+
+.overlay input.edit-caption {
+    display: none;
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%; /* Đặt chiều rộng của ô nhập nhỏ lại */
+    max-width: 300px; /* Giới hạn chiều rộng tối đa */
+}
+
+.overlay button.edit-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.overlay button.edit-btn:hover {
+    background-color: #ddd;
+}
+
+.overlay button.done-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.overlay button.done-btn:hover {
+    background-color: #45a049;
+}
+
+
     </style>
 </head>
 <body>
@@ -112,29 +183,35 @@
 
     <script src="main.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const gallery = document.querySelector(".gallery");
+    document.addEventListener("DOMContentLoaded", () => {
+    const gallery = document.querySelector(".gallery");
 
-            // Lấy danh sách ảnh từ file JSON
-            fetch("images.json")
-                .then(response => response.json())
-                .then(images => {
-                    images.forEach(image => {
-                        const galleryItem = document.createElement("div");
-                        galleryItem.classList.add("gallery-item");
+    // Lấy danh sách ảnh từ file JSON
+    fetch("images.json")
+        .then(response => response.json())
+        .then(images => {
+            images.forEach(image => {
+                const galleryItem = document.createElement("div");
+                galleryItem.classList.add("gallery-item");
 
-                        // Thêm thuộc tính loading="lazy" để cải thiện tốc độ tải
-                        galleryItem.innerHTML = `
-                            <img src="gallery/${image}" alt="${image}" loading="lazy">
-                            <div class="overlay">
-                                <p>${image}</p>
-                            </div>
-                        `;
-                        gallery.appendChild(galleryItem);
-                    });
-                })
-                .catch(err => console.error("Error loading images:", err));
-        });
+                // Sử dụng file và text từ JSON
+                galleryItem.innerHTML = `
+                    <img src="gallery/${image.file}" alt="${image.text}" loading="lazy">
+                    <div class="overlay">
+                        <p class="caption">${image.text}</p>
+                        <input type="text" class="edit-caption" value="${image.text}">
+                        
+                    </div>
+                `;
+                gallery.appendChild(galleryItem);
+            });
+        })
+        .catch(err => console.error("Error loading images:", err));
+
+    
+    });
+
+
     </script>
 </body>
 </html>
