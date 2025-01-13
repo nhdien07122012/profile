@@ -8,6 +8,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+            
+            
+
+            .slide {
+                display: flex;
+                width: 200%;
+                animation: slideEffect 10s infinite;
+            }
+
+           
+           
+
+            @keyframes slideEffect {
+                0% {
+                    transform: translateX(0);
+                }
+                33% {
+                    transform: translateX(-33.33%); /* Đẩy ảnh 1 ra khỏi màn hình */
+                }
+                66% {
+                    transform: translateX(-66.66%); /* Đẩy ảnh 2 ra khỏi màn hình */
+                }
+                100% {
+                    transform: translateX(0); /* Trở về vị trí ban đầu */
+                }
+            }
+    /*CSS cho slide cover-photo*/
         .info-table {
             width: 100%;
             max-width: 600px;
@@ -78,6 +105,12 @@
         }
 
         @media (max-width: 767px) {
+            .personal-profile .cover-photo img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover; /* Ensure image covers entire frame */
+                object-position: center;
+            }
             .info-table {
                 font-size: 14px;
             }
@@ -164,8 +197,9 @@
                 background-color: white;
                 border-radius: 10px;
             }
-
-       
+            /* Hiệu ứng sidebar nằm ngnag */
+            
+            
     </style>
 </head>
 <body class="hidden">
@@ -211,6 +245,7 @@
             <div class="cover-photo">
                 <div class="slide">
                     <img src="cover-photo.jpg" alt="Slide 1" loading="lazy">
+                    <img src="cover-photo2.jpg" alt="Slide 2" loading="lazy">
                 </div>
             </div>
             <div class="avatar">
