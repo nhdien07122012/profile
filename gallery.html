@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Bộ sưu tập</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon-tron.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -22,11 +23,15 @@
             overflow: hidden;
             border-radius: 15px; /* Bo tròn các góc */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Đổ bóng cho ảnh */
-            transition: transform 0.3s ease; /* Hiệu ứng phóng to */
+            transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.4s;
+            height: 200px; /* Thêm dòng này để khung bằng đúng ảnh */
+            padding: 0;    /* Đảm bảo không có padding */
         }
 
         .gallery-item:hover {
-            transform: scale(1.05); /* Phóng to nhẹ khi hover */
+            transform: scale(1.15); /* Zoom to hơn */
+            z-index: 2;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.35); /* Đổ bóng mạnh hơn */
         }
 
         .gallery-item img {
@@ -149,7 +154,83 @@
     background-color: #45a049;
 }
 
-
+/* Overlay zoom toàn màn hình */
+.zoom-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(.4,0,.2,1);
+}
+.zoom-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.zoom-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 18px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+    transform: scale(0.8);
+    opacity: 0;
+}
+.zoom-overlay.active img {
+    transform: scale(1);
+    opacity: 1;
+}
+.zoom-overlay .zoom-caption {
+    color: #fff;
+    margin-top: 18px;
+    font-size: 1.2em;
+    text-align: center;
+    text-shadow: 0 2px 8px #000;
+}
+.zoom-overlay .close-btn {
+    position: absolute;
+    top: 32px;
+    right: 40px;
+    font-size: 2.2em;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    transition: color 0.2s;
+}
+.zoom-overlay .close-btn:hover {
+    color: #ff5252;
+}
+@media (max-width: 700px) {
+    .zoom-overlay img { max-width: 98vw; max-height: 70vh; }
+    .zoom-overlay .close-btn { top: 12px; right: 18px; font-size: 2em; }
+}
+.zoom-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.7);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s;
+}
+.zoom-btn:hover {
+    background: #007bff;
+}
     </style>
 </head>
 <body>
@@ -181,10 +262,22 @@
         </section>
     </div>
 
+    <div class="zoom-overlay" id="zoomOverlay">
+    <button class="close-btn" id="closeZoom">&times;</button>
+    <div>
+        <img id="zoomImg" src="" alt="">
+        <div class="zoom-caption" id="zoomCaption"></div>
+    </div>
+</div>
+
     <script src="main.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", () => {
     const gallery = document.querySelector(".gallery");
+    const zoomOverlay = document.getElementById("zoomOverlay");
+    const zoomImg = document.getElementById("zoomImg");
+    const zoomCaption = document.getElementById("zoomCaption");
+    const closeZoom = document.getElementById("closeZoom");
 
     // Lấy danh sách ảnh từ file JSON
     fetch("images.json")
@@ -194,24 +287,49 @@
                 const galleryItem = document.createElement("div");
                 galleryItem.classList.add("gallery-item");
 
-                // Sử dụng file và text từ JSON
                 galleryItem.innerHTML = `
                     <img src="gallery/${image.file}" alt="${image.text}" loading="lazy">
                     <div class="overlay">
                         <p class="caption">${image.text}</p>
                         <input type="text" class="edit-caption" value="${image.text}">
-                        
+                        <button class="zoom-btn" title="Phóng to"><i class="fas fa-expand"></i></button>
                     </div>
                 `;
+                // Sự kiện click vào icon phóng to
+                const zoomBtn = galleryItem.querySelector(".zoom-btn");
+                zoomBtn.addEventListener("click", (e) => {
+                    e.stopPropagation(); // Không lan sự kiện click ra ngoài
+                    showZoom(image);
+                });
+                // Sự kiện hover (desktop) hoặc click (mobile) để zoom
+                const imgEl = galleryItem.querySelector("img");
+                imgEl.addEventListener("click", (e) => {
+                    showZoom(image);
+                });
                 gallery.appendChild(galleryItem);
             });
         })
         .catch(err => console.error("Error loading images:", err));
 
-    
+    function showZoom(image) {
+        zoomImg.src = "gallery/" + image.file;
+        zoomImg.alt = image.text;
+        zoomCaption.textContent = image.text;
+        zoomOverlay.classList.add("active");
+    }
+    function hideZoom() {
+        zoomOverlay.classList.remove("active");
+        setTimeout(() => {
+            zoomImg.src = "";
+            zoomCaption.textContent = "";
+        }, 350);
+    }
+    closeZoom.onclick = hideZoom;
+    // Đóng khi click nền overlay
+    zoomOverlay.addEventListener("click", (e) => {
+        if (e.target === zoomOverlay) hideZoom();
     });
-
-
+});
     </script>
 </body>
 </html>
