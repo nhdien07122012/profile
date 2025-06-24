@@ -67,7 +67,10 @@
     <div class="main-content" id="main-content">
         <header>
             <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
-            
+            <button id="music-toggle" title="Tắt/Bật nhạc nền">
+                <i id="music-icon" class="fas fa-volume-up"></i>
+            </button>
+            <audio id="background-music" src="audio/nhacnen.mp3" loop></audio>
         </header>
         <section class="qr-code">
             <!-- Nội dung QR Code -->
@@ -83,5 +86,33 @@
     </div>
 
     <script src="main.js"></script>
+    <script>
+const music = document.getElementById('background-music');
+const toggleBtn = document.getElementById('music-toggle');
+const icon = document.getElementById('music-icon');
+
+// Tự động phát nhạc khi trang tải (nếu trình duyệt cho phép)
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('music-muted') !== 'true') {
+        music.volume = 0.5;
+        music.play().catch(()=>{});
+        icon.className = 'fas fa-volume-up';
+    } else {
+        icon.className = 'fas fa-volume-mute';
+    }
+});
+
+toggleBtn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        icon.className = 'fas fa-volume-up';
+        localStorage.setItem('music-muted', 'false');
+    } else {
+        music.pause();
+        icon.className = 'fas fa-volume-mute';
+        localStorage.setItem('music-muted', 'true');
+    }
+});
+</script>
 </body>
 </html>

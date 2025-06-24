@@ -199,7 +199,26 @@
                 border-radius: 10px;
             }
             /* Hiệu ứng sidebar nằm ngnag */
-            
+            header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    padding: 10px 0 10px 0;
+    background: transparent;
+    z-index: 10;
+}
+#music-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #007bff;
+    transition: color 0.2s;
+}
+#music-toggle:hover {
+    color: #0056b3;
+}
             
     </style>
 </head>
@@ -248,9 +267,10 @@
     <div class="main-content" id="main-content" style="display: block;">
         <header>
             <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
-            <span id="visit-counter" style="margin-left: 10px; font-size: 16px; font-weight: bold; color: #007bff;">
-                Loading view...
-            </span>
+            <button id="music-toggle" title="Tắt/Bật nhạc nền">
+                <i id="music-icon" class="fas fa-volume-up"></i>
+            </button>
+            <audio id="background-music" src="audio/nhacnen.mp3" loop></audio>
         </header>
         <section class="personal-profile">
             <div class="cover-photo">
@@ -354,6 +374,35 @@
     </div>
 
     <script src="main.js"></script>
+    <script>
+    const music = document.getElementById('background-music');
+    const toggleBtn = document.getElementById('music-toggle');
+    const icon = document.getElementById('music-icon');
+
+    // Tự động phát nhạc khi trang tải (nếu trình duyệt cho phép)
+    window.addEventListener('DOMContentLoaded', () => {
+        // Chỉ tự động phát khi chưa tắt
+        if (localStorage.getItem('music-muted') !== 'true') {
+            music.volume = 0.5;
+            music.play().catch(()=>{});
+            icon.className = 'fas fa-volume-up';
+        } else {
+            icon.className = 'fas fa-volume-mute';
+        }
+    });
+
+    toggleBtn.addEventListener('click', () => {
+        if (music.paused) {
+            music.play();
+            icon.className = 'fas fa-volume-up';
+            localStorage.setItem('music-muted', 'false');
+        } else {
+            music.pause();
+            icon.className = 'fas fa-volume-mute';
+            localStorage.setItem('music-muted', 'true');
+        }
+    });
+</script>
     
 </body>
 </html>
