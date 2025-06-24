@@ -375,33 +375,40 @@
 
     <script src="main.js"></script>
     <script>
-    const music = document.getElementById('background-music');
-    const toggleBtn = document.getElementById('music-toggle');
-    const icon = document.getElementById('music-icon');
+const music = document.getElementById('background-music');
+const toggleBtn = document.getElementById('music-toggle');
+const icon = document.getElementById('music-icon');
 
-    // Tự động phát nhạc khi trang tải (nếu trình duyệt cho phép)
-    window.addEventListener('DOMContentLoaded', () => {
-        // Chỉ tự động phát khi chưa tắt
-        if (localStorage.getItem('music-muted') !== 'true') {
-            music.volume = 0.5;
-            music.play().catch(()=>{});
-            icon.className = 'fas fa-volume-up';
-        } else {
-            icon.className = 'fas fa-volume-mute';
-        }
-    });
+function playMusicIfAllowed() {
+    if (localStorage.getItem('music-muted') !== 'true') {
+        music.volume = 0.5;
+        music.play().catch(()=>{});
+        icon.className = 'fas fa-volume-up';
+    } else {
+        icon.className = 'fas fa-volume-mute';
+    }
+    // Chỉ cần chạy 1 lần
+    window.removeEventListener('click', playMusicIfAllowed);
+}
 
-    toggleBtn.addEventListener('click', () => {
-        if (music.paused) {
-            music.play();
-            icon.className = 'fas fa-volume-up';
-            localStorage.setItem('music-muted', 'false');
-        } else {
-            music.pause();
-            icon.className = 'fas fa-volume-mute';
-            localStorage.setItem('music-muted', 'true');
-        }
-    });
+window.addEventListener('DOMContentLoaded', () => {
+    playMusicIfAllowed();
+    // Đăng ký phát nhạc khi người dùng click lần đầu
+    window.addEventListener('click', playMusicIfAllowed);
+});
+
+toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Không để sự kiện click lan ra ngoài
+    if (music.paused) {
+        music.play();
+        icon.className = 'fas fa-volume-up';
+        localStorage.setItem('music-muted', 'false');
+    } else {
+        music.pause();
+        icon.className = 'fas fa-volume-mute';
+        localStorage.setItem('music-muted', 'true');
+    }
+});
 </script>
     
 </body>
