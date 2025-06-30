@@ -173,59 +173,9 @@
                             <th>Tải xuống</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        
-                        
-                        
-                        <tr>
-                            <td>AIO Active.rar</td>
-                            <td>2025-06-17 11:17</td>
-                            <td><a href="database/AIO Active.rar" download>Tải về</a></td>
-                        </tr>
-                        <tr>
-                            <td>avatar.jpeg</td>
-                            <td>2025-06-09 14:55</td>
-                            <td><a href="database/avatar.jpeg" download>Tải về</a></td>
-                        </tr>
-                        <tr>
-                            <td>bookmarks_12_06_2025.html</td>
-                            <td>2025-06-12 10:47</td>
-                            <td><a href="database/bookmarks_12_06_2025.html" download>Tải về</a></td>
-                        </tr>
-                        <tr>
-                            <td>Fliqlo.scr</td>
-                            <td>2021-03-06 18:45</td>
-                            <td><a href="database/Fliqlo.scr" download>Tải về</a></td>
-                        </tr>
-                        <tr>
-                            <td>hinhnen_liquid_glass.JPG</td>
-                            <td>2025-06-13 13:13</td>
-                            <td><a href="database/hinhnen_liquid_glass.JPG" download>Tải về</a></td>
-                        </tr>
-                        <tr>
-                            <td>me 2025.png</td>
-                            <td>2025-06-02 22:11</td>
-                            <td><a href="database/me 2025.png" download>Tải về</a></td>
-                        </tr>
-                        <tr>
-                            <td>Simplify Big Sur Cursors.rar</td>
-                            <td>2025-06-12 14:18</td>
-                            <td><a href="database/Simplify Big Sur Cursors.rar" download>Tải về</a></td>
-                        </tr>
-                        <tr>
-                            <td>ukmacro.txt</td>
-                            <td>2025-06-12 13:50</td>
-                            <td><a href="database/ukmacro.txt" download>Tải về</a></td>
-                        </tr>
-                        <tr>
-                            <td>UniKeyNT.exe</td>
-                            <td>2023-09-19 15:58</td>
-                            <td><a href="database/UniKeyNT.exe" download>Tải về</a></td>
-                        </tr>
-
-
-
-                    </tbody>
+                    <tbody id="file-list">
+    <tr><td colspan="3">Đang tải...</td></tr>
+</tbody>
                 </table>
             </div>
         </div>
@@ -259,6 +209,22 @@ toggleBtn.addEventListener('click', () => {
         localStorage.setItem('music-muted', 'true');
     }
 });
+
+fetch('filelist.json')
+  .then(res => res.json())
+  .then(files => {
+    const tbody = document.getElementById('file-list');
+    tbody.innerHTML = files.map(file => `
+      <tr>
+        <td>${file.name}</td>
+        <td>${file.date}</td>
+        <td><a href="${file.url}" download>Tải về</a></td>
+      </tr>
+    `).join('');
+  })
+  .catch(() => {
+    document.getElementById('file-list').innerHTML = '<tr><td colspan="3">Không thể tải danh sách file.</td></tr>';
+  });
 </script>
 </body>
 </html>
