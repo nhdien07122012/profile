@@ -352,22 +352,22 @@
             </div>
             <div class="contact-us">
                 <h2>Liên Hệ</h2>
-                <form action="#" method="POST">
-                    <label for="customerName">Họ tên<em>*</em></label>
-                    <input type="text" id="customerName" name="customerName" placeholder="Nhập họ tên của bạn" required>
-        
-                    <label for="customerEmail">EMAIL <em>*</em></label>
-                    <input type="email" id="customerEmail" name="customerEmail" placeholder="example@email.com" required>
-        
-                    <label for="customerPhone">SỐ ĐIỆN THOẠI</label>
-                    <input type="tel" id="customerPhone" name="customerPhone" placeholder="012-345-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-        
-                    <label for="customerNote">NỘI DUNG TIN NHẮN <em>*</em></label>
-                    <textarea id="customerNote" name="customerNote" rows="4" placeholder="Nhập tin nhắn của bạn" required></textarea>
-                                         
-        
-                    <button type="submit">GỬI</button>
+                <form action="https://formspree.io/f/xvgqpwqk" method="POST">
+                <label for="customerName">Họ tên<em>*</em></label>
+                <input type="text" id="customerName" name="customerName" placeholder="Nhập họ tên của bạn" required>
+
+                <label for="customerEmail">EMAIL <em>*</em></label>
+                <input type="email" id="customerEmail" name="customerEmail" placeholder="example@email.com" required>
+
+                <label for="customerPhone">SỐ ĐIỆN THOẠI</label>
+                <input type="tel" id="customerPhone" name="customerPhone" placeholder="012-345-6789">
+
+                <label for="customerNote">NỘI DUNG TIN NHẮN <em>*</em></label>
+                <textarea id="customerNote" name="customerNote" rows="4" placeholder="Nhập tin nhắn của bạn" required></textarea>
+
+                <button type="submit">GỬI</button>
                 </form>
+
                 </div>
             </section>
 
@@ -375,41 +375,65 @@
 
     <script src="main.js"></script>
     <script>
-const music = document.getElementById('background-music');
-const toggleBtn = document.getElementById('music-toggle');
-const icon = document.getElementById('music-icon');
+    const music = document.getElementById('background-music');
+    const toggleBtn = document.getElementById('music-toggle');
+    const icon = document.getElementById('music-icon');
 
-function playMusicIfAllowed() {
-    if (localStorage.getItem('music-muted') !== 'true') {
-        music.volume = 0.5;
-        music.play().catch(()=>{});
-        icon.className = 'fas fa-volume-up';
-    } else {
-        icon.className = 'fas fa-volume-mute';
+    function playMusicIfAllowed() {
+        if (localStorage.getItem('music-muted') !== 'true') {
+            music.volume = 0.5;
+            music.play().catch(()=>{});
+            icon.className = 'fas fa-volume-up';
+        } else {
+            icon.className = 'fas fa-volume-mute';
+        }
+        // Chỉ cần chạy 1 lần
+        window.removeEventListener('click', playMusicIfAllowed);
     }
-    // Chỉ cần chạy 1 lần
-    window.removeEventListener('click', playMusicIfAllowed);
-}
 
-window.addEventListener('DOMContentLoaded', () => {
-    playMusicIfAllowed();
-    // Đăng ký phát nhạc khi người dùng click lần đầu
-    window.addEventListener('click', playMusicIfAllowed);
-});
+    window.addEventListener('DOMContentLoaded', () => {
+        playMusicIfAllowed();
+        // Đăng ký phát nhạc khi người dùng click lần đầu
+        window.addEventListener('click', playMusicIfAllowed);
+    });
 
-toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Không để sự kiện click lan ra ngoài
-    if (music.paused) {
-        music.play();
-        icon.className = 'fas fa-volume-up';
-        localStorage.setItem('music-muted', 'false');
-    } else {
-        music.pause();
-        icon.className = 'fas fa-volume-mute';
-        localStorage.setItem('music-muted', 'true');
-    }
-});
-</script>
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Không để sự kiện click lan ra ngoài
+        if (music.paused) {
+            music.play();
+            icon.className = 'fas fa-volume-up';
+            localStorage.setItem('music-muted', 'false');
+        } else {
+            music.pause();
+            icon.className = 'fas fa-volume-mute';
+            localStorage.setItem('music-muted', 'true');
+        }
+    });
+    // Hiển thị thông báo khi gửi contract form
+
+        const form = document.querySelector("form");
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+                Accept: "application/json",
+            },
+            });
+            if (response.ok) {
+            alert("✅ Gửi thành công! Cảm ơn bạn đã liên hệ.");
+            form.reset();
+            } else {
+            alert("❌ Có lỗi xảy ra. Vui lòng thử lại sau.");
+            }
+        });
+
+
+
+
+
+    </script>
     
 </body>
 </html>
